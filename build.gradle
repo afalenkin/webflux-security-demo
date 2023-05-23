@@ -24,6 +24,7 @@ dependencies {
 	implementation "org.mapstruct:mapstruct:$mapstructVersion"
 	implementation "io.jsonwebtoken:jjwt:$jwtVersion"
 	implementation "javax.xml.bind:jaxb-api:$jaxbVersion"
+	implementation "org.projectlombok:lombok:$lombokVersion"
 
 	annotationProcessor "org.projectlombok:lombok"
 	annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
