@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  r2dbc:
+    url: r2dbc:pool:postgres://localhost:5432/security
+    username: root
+    password: root
+  flyway:
+    url: jdbc:postgresql://localhost:5432/security
+    user: root
+    password: root
+    locations: classpath:db/migration
+
+
