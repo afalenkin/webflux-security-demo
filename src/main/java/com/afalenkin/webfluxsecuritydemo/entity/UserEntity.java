@@ -27,7 +27,7 @@ public class UserEntity {
     private UserRole role;
     private String firstName;
     private String lastName;
-    private Boolean enabled;
+    private boolean enabled;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

@@ -10,5 +10,5 @@ import reactor.core.publisher.Mono;
  */
 public interface UserRepository extends R2dbcRepository<UserEntity, Long> {
 
-    Mono<UserEntity> getByUsername(String userName);
+    Mono<UserEntity> findByUsername(String userName);
 }
