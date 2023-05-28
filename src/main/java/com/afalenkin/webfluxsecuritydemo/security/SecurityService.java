@@ -2,7 +2,7 @@ package com.afalenkin.webfluxsecuritydemo.security;
 
 import com.afalenkin.webfluxsecuritydemo.entity.UserEntity;
 import com.afalenkin.webfluxsecuritydemo.exception.AuthException;
-import com.afalenkin.webfluxsecuritydemo.repository.UserRepository;
+import com.afalenkin.webfluxsecuritydemo.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ import java.util.UUID;
 @Component
 @RequiredArgsConstructor
 public class SecurityService {
-    private final UserRepository userRepository;
+    private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
     @Value("${jwt.secret}")
@@ -35,7 +35,7 @@ public class SecurityService {
     private String issuer;
 
     public Mono<TokenDetails> authenticate(String username, String password) {
-        return userRepository.findByUsername(username)
+        return userService.getByUsername(username)
                 .flatMap(user -> {
                     if (!user.isEnabled()) {
                         return Mono.error(new AuthException("Account is blocked", "ACCOUNT_DISABLED"));

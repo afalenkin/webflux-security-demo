@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+
 public class UserDto {
     private Long id;
     private String username;
